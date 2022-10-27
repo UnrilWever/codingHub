@@ -8,11 +8,17 @@
   </head>
   <body>
     <button id="btn">点我防抖</button>
+    <button id="btn2">点我节流</button>
   </body>
   <script src="./debounce.js"></script>
+  <script src="./throttle.js"></script>
   <script>
     const btn = document.querySelector('#btn')
     btn.onclick = debounce(() => {
+      console.log('im out')
+    }, 1000)
+    const btn2 = document.querySelector('#btn2')
+    btn2.onclick = throttle(() => {
       console.log('im out')
     }, 1000)
   </script>
