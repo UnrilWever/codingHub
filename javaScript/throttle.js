@@ -9,3 +9,16 @@ const throttle = (func, delay = 50) => {
     }
   }
 }
+
+// 定时器方式,技能释放读条效果
+const throttle_2 = (func, delay = 50) => {
+  let timer = null
+  return function (...args) {
+    if (!timer) {
+      timer = setTimeout(() => {
+        func.apply(this, args)
+        timer = null
+      }, delay)
+    }
+  }
+}
