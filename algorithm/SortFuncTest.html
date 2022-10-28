@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="generate">生成数组</button>
+      <div id="preNums">null</div>
+    </div>
+    <div>
+      <button id="result">排序结果</button>
+      <div id="resultNums">null</div>
+    </div>
+  </body>
+  <script src="./SortFunc.js"></script>
+  <script>
+    //自定义配置
+    let N = 10 // 数组大小范围 0 ~ N
+    let M = 100 // 数组元素大小范围 0 ~ M
+    let sortFunc = function (nums) {
+      console.log(quickSort(nums))
+      return quickSort(nums)
+    }
+
+    let nums = null
+    //生成数组
+    const preNums = document.getElementById('preNums')
+    const generateBtn = document.getElementById('generate')
+    generateBtn.onclick = () => {
+      nums = new Array((Math.random() * (N + 1)) | 0).fill(null).map(() => (Math.random() * (M + 1)) | 0)
+      if (nums.length) {
+        preNums.innerHTML = nums
+      } else {
+        preNums.innerHTML = 'null'
+      }
+    }
+
+    //排序结果
+    const resultNums = document.getElementById('resultNums')
+    const resultBtn = document.getElementById('result')
+    resultBtn.onclick = () => {
+      if (nums.length) {
+        resultNums.innerHTML = sortFunc(nums)
+      } else {
+        resultNums.innerHTML = 'null'
+      }
+    }
+  </script>
+</html>
