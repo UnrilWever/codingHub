@@ -15,6 +15,11 @@
       <button id="result">排序结果</button>
       <div id="resultNums">null</div>
     </div>
+
+    <div>
+      <h4>验证结果为:</h4>
+      <div id="verText"></div>
+    </div>
   </body>
   <script src="./SortFunc.js"></script>
   <script>
@@ -22,8 +27,8 @@
     let N = 10 // 数组大小范围 0 ~ N
     let M = 100 // 数组元素大小范围 0 ~ M
     let sortFunc = function (nums) {
-      console.log(quickSort(nums))
-      return quickSort(nums)
+      console.log(heapSort(nums))
+      return heapSort(nums)
     }
 
     let nums = null
@@ -48,6 +53,20 @@
       } else {
         resultNums.innerHTML = 'null'
       }
+      //校验
+      let verNums = nums.sort((a, b) => a - b)
+      let verify = true
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== verNums[i]) {
+          verify = false
+          break
+        }
+      }
+
+      let verText = verify ? `<b style="color: green">正确</b>` : `<b style="color: red">错误</b>`
+
+      const verTextBox = document.getElementById('verText')
+      verTextBox.innerHTML = verText
     }
   </script>
 </html>
