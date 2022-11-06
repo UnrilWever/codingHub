@@ -22,3 +22,12 @@ const throttle_delay = (func, delay = 50) => {
     }
   }
 }
+
+let obj = {}
+let c = { a: 123 }
+
+let result = Object.assign(obj, c)
+
+console.log(result === obj)
+console.log(result)
+console.log(obj)
