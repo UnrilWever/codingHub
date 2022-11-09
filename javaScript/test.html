@@ -14,7 +14,7 @@
   <script src="./throttle.js"></script>
   <script>
     const btn = document.querySelector('#btn')
-    btn.onclick = debounce(
+    btn.onclick = debounce_throttle(
       () => {
         console.log('im out')
       },
