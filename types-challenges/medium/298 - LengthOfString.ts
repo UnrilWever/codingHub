@@ -6,7 +6,7 @@
   ### 题目
   
   计算字符串的长度，类似于 `String#length` 。
-  
+  w
   > 在 Github 上查看：https://tsch.js.org/298/zh-CN
 */
 
