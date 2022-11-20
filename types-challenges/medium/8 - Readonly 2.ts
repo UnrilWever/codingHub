@@ -42,7 +42,6 @@ type MyReadonly2<T, K extends keyof T = keyof T> = {
 } & {
    [R in Exclude<keyof T,K>]:T[R]
 };
-type see = MyReadonly2<Todo1>
 /* _____________ 测试用例 _____________ */
 import type { Alike, Expect } from '@type-challenges/utils'
 
