@@ -17,6 +17,8 @@ type StringToEnum<S extends string> =
 S extends `${infer S1}${infer S2}`
 ? [...T,S1,...StringToEnum<S2>]:T
 
+type see = StringToEnum<'awdawd'>
+
 type LengthOfString<S extends string> = StringToEnum<S>['length']
 
 /* _____________ 测试用例 _____________ */
