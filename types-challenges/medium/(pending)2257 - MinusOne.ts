@@ -20,15 +20,15 @@
 
 /* _____________ 你的代码 _____________ */
 
-type MinusOne<T extends number,arr extends string[] = []> = 
+type MinusOne<T extends number,arr extends number[] = []> = 
 [
   ...arr,
-  ''
+  1
 ]['length'] extends T
 ? arr['length']
-: MinusOne<T,[...arr,'']>
+: MinusOne<T,[...arr,1]>
 
-type see = MinusOne<110>
+type see = MinusOne<1101>
 
 
 /* _____________ 测试用例 _____________ */
