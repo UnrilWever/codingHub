@@ -28,6 +28,7 @@ type MinusOne<T extends number,arr extends number[] = []> =
 ? arr['length']
 : MinusOne<T,[...arr,1]>
 
+
 type see = MinusOne<1101>
 
 
