@@ -12,14 +12,29 @@
 
 
 /* _____________ Your Code Here _____________ */
-type FindRepeat<T,Set = [],Repeat extends string> = 
+
+type isInSet<T,E> = 
+T extends [infer L,...infer R]
+? L extends E
+  ? true
+  : isInSet<R,E>
+: false 
+
+type FindRepeat<T,Repeat,Set extends string[] = []> = 
 T extends `${infer L}${infer R}`  
-? Set extends []
+? isInSet<Set,L> extends true
+  ? FindRepeat<R,Repeat | L,Set> 
+  : FindRepeat<R,Repeat,[...Set,L]>
 : Repeat
 
-type FirstUniqueCharIndex<T extends string>= 
+type FirstUniqueCharIndex<T extends string,Repeat = FindRepeat<T,never>,Count extends number[] = []>= 
+T extends `${infer L}${infer R}`
+? L extends Repeat
+  ? FirstUniqueCharIndex<R,Repeat,[...Count,1]>
+  : Count['length']
+: -1
 
-
+type see = FirstUniqueCharIndex<'leetcode'>
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
