@@ -24,7 +24,11 @@ function debounce(cb, delay) {
 //   }
 // }
 
-//加强版 throttle
+/**
+ * 加强版 throttle
+ * wait之前点多少次都会重启定时器，在wait之前一刻最后一次触发，那么会等到wait时间后再执行
+ * 而如果在wait之后一刻执行，那么就会立即执行函数
+ */
 const debounce_throttle = (fn, delay) => {
   let pre = 0,
     timer = null
